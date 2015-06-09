@@ -18,7 +18,7 @@ Your Mac must not have a Core 2 duo or Solo (or older) processor - only the past
 0. Back your shit up
 0. No really, make sure you have a working backup. This procedure has been tested multiple times, but it's still possible things will go wrong and lose data.
 1. Download rEFInd (http://www.rodsbooks.com/refind/getting.html) as a "Binary zip file" and decompress it. Open Terminal and cd into the decompressed folder.
-2. Install rEFInd to the ESP partition (`$ ./install.sh --esp --alldrivers`)
+2. Install rEFInd to the ESP partition (`$ ./install.sh --alldrivers`) (you used to need to specify the --esp flag on older versions of install.sh).
 3. Mount your ESP partition (`$ mkdir /Volumes/ESP && sudo mount -t msdos /dev/disk0s1 /Volumes/ESP/`)
 4. Rename the refind directory (`$ mv /Volumes/ESP/EFI/refind /Volumes/ESP/EFI/BOOT`)
 5. Rename the refind EFI blob (`$ mv /Volumes/ESP/EFI/BOOT/refind_x64.efi /Volumes/ESP/EFI/BOOT/bootx64.efi`)
@@ -36,6 +36,7 @@ Your Mac must not have a Core 2 duo or Solo (or older) processor - only the past
 17. You're now dual-booting Freya and OS X. Woot.
 18. (optional) Make your rEFInd nicer. You can install a theme, get rid of the duplicate entries, etc. If you want to know how to do that stuff let me know and I'll document it. Here's what my setup looks like:
 ![no-fde](img/finished-product.jpg)
+--Hell hes! I'd like to see how to do that!
 20. (optional) If you're using a pre-release build for the install, like Beta 1, the WiFi may not work out of the box. In this case you need to install the related drivers manually:
     - *Somehow* get a temporary internet connection, e.g. via your smartphone's USB/Bluetooth tethering function or (*not tested yet!*) a [Thunderbold to RJ45 adapter](http://store.apple.com/us/product/MD463ZM/A/thunderbolt-to-gigabit-ethernet-adapter)
     - execute `sudo apt-get install bcmwl-kernel-source` in a terminal to install the driver and its dependencies
